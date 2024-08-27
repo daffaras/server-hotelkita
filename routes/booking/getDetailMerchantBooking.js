@@ -3,6 +3,7 @@ const Booking = require("../../models/booking");
 const Hotel = require("../../models/hotel");
 const Bank = require("../../models/bank");
 const Image = require("../../models/image");
+require("dotenv").config();
 
 const getDetailMerchantBooking = (router) => {
   router.post("/get-detail-merchant-booking", auth, async (req, res) => {
@@ -28,12 +29,10 @@ const getDetailMerchantBooking = (router) => {
         const image = hotel.imageId[j];
         const imageHotel = await Image.findOne({ _id: image });
 
-        hasilItem.image.push(
-          `http://103.226.139.23:3000/${imageHotel.imageUrl}`
-        );
+        hasilItem.image.push(`${process.env.URL_API}${imageHotel.imageUrl}`);
       }
 
-      proofPayment.imageUrl = `http://103.226.139.23:3000/${proofPayment.imageUrl}`;
+      proofPayment.imageUrl = `${process.env.URL_API}${proofPayment.imageUrl}`;
 
       const hasil = {
         hotel: hasilItem,

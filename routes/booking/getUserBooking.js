@@ -3,6 +3,7 @@ const User = require("../../models/user");
 const Booking = require("../../models/booking");
 const Hotel = require("../../models/hotel");
 const Image = require("../../models/image");
+require("dotenv").config();
 
 const getUserBooking = (router) => {
   router.post("/get-user-booking", auth, async (req, res) => {
@@ -46,9 +47,7 @@ const getUserBooking = (router) => {
           const image = hotel.imageId[j];
           const imageHotel = await Image.findOne({ _id: image });
 
-          hasilItem.image.push(
-            `http://103.226.139.23:3000/${imageHotel.imageUrl}`
-          );
+          hasilItem.image.push(`${process.env.URL_API}${imageHotel.imageUrl}`);
         }
 
         const hasilLoop = { booking: item, hotel: hasilItem };

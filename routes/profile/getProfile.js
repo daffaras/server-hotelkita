@@ -1,5 +1,6 @@
 const User = require("../../models/user");
 const auth = require("../../middlewares/auth");
+require("dotenv").config();
 
 const getProfile = (router) => {
   router.post("/get-profile", auth, async (req, res) => {
@@ -7,7 +8,7 @@ const getProfile = (router) => {
       const token = req.token;
       const profile = await User.findOne({ token: token });
       if (profile.imageUrl !== undefined) {
-        profile.imageUrl = `http://103.226.139.23:3000/${profile.imageUrl}`;
+        profile.imageUrl = `${process.env.URL_API}${profile.imageUrl}`;
       }
       return res.json({
         success: true,

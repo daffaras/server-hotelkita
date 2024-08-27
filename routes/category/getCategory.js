@@ -1,4 +1,5 @@
 const Category = require("../../models/category");
+require("dotenv").config();
 
 const getCategory = (router) => {
   router.post("/get-category", async (req, res) => {
@@ -19,7 +20,7 @@ const getCategory = (router) => {
           const hasilItem = {
             _id: categoryItem._id,
             name: categoryItem.name,
-            imageUrl: `http://103.226.139.23:3000/${categoryItem.imageUrl}`,
+            imageUrl: `${process.env.URL_API}${categoryItem.imageUrl}`,
             hotelId: categoryItem.hotelId,
           };
 

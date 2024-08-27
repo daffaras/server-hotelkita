@@ -1,5 +1,6 @@
 const Hotel = require("../../models/hotel");
 const Image = require("../../models/image");
+require("dotenv").config();
 
 const getLatestHotel = (router) => {
   router.post("/get-latest-hotel", async (req, res) => {
@@ -34,7 +35,7 @@ const getLatestHotel = (router) => {
               const imagehotel = await Image.findOne({ _id: image });
 
               hasilItem.image.push(
-                `http://103.226.139.23:3000/${imagehotel.imageUrl}`
+                `${process.env.URL_API}${imagehotel.imageUrl}`
               );
             }
 

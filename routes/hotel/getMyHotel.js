@@ -2,6 +2,7 @@ const auth = require("../../middlewares/auth");
 const Hotel = require("../../models/hotel");
 const Image = require("../../models/image");
 const User = require("../../models/user");
+require("dotenv").config();
 
 const getMyHotel = (router) => {
   router.post("/get-my-hotel", auth, async (req, res) => {
@@ -38,7 +39,7 @@ const getMyHotel = (router) => {
             const imageHotel = await Image.findOne({ _id: image });
 
             hasilItem.image.push(
-              `http://103.226.139.23:3000/${imageHotel.imageUrl}`
+              `${process.env.URL_API}${imageHotel.imageUrl}`
             );
           }
 
