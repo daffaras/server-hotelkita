@@ -36,7 +36,7 @@ const getMerchantBooking = (router) => {
             const imageHotel = await Image.findOne({ _id: image });
 
             hasilItem.image.push(
-              `${process.env.URL_API}${imageHotel.imageUrl}`
+              `https://server-hotelkita.koyeb.app/${imageHotel.imageUrl}`
             );
           }
 

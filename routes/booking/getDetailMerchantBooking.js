@@ -29,10 +29,12 @@ const getDetailMerchantBooking = (router) => {
         const image = hotel.imageId[j];
         const imageHotel = await Image.findOne({ _id: image });
 
-        hasilItem.image.push(`${process.env.URL_API}${imageHotel.imageUrl}`);
+        hasilItem.image.push(
+          `https://server-hotelkita.koyeb.app/${imageHotel.imageUrl}`
+        );
       }
 
-      proofPayment.imageUrl = `${process.env.URL_API}${proofPayment.imageUrl}`;
+      proofPayment.imageUrl = `https://server-hotelkita.koyeb.app/${proofPayment.imageUrl}`;
 
       const hasil = {
         hotel: hasilItem,

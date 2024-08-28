@@ -20,7 +20,7 @@ const getCategory = (router) => {
           const hasilItem = {
             _id: categoryItem._id,
             name: categoryItem.name,
-            imageUrl: `${process.env.URL_API}${categoryItem.imageUrl}`,
+            imageUrl: `https://server-hotelkita.koyeb.app/${categoryItem.imageUrl}`,
             hotelId: categoryItem.hotelId,
           };
 

@@ -33,7 +33,7 @@ const getDetailHotel = (router) => {
 
           hasilItem.image.push({
             id: image,
-            imageUrl: `${process.env.URL_API}${imagehotel.imageUrl}`,
+            imageUrl: `https://server-hotelkita.koyeb.app/${imagehotel.imageUrl}`,
           });
         }
 

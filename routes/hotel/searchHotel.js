@@ -38,7 +38,7 @@ const searchHotel = (router) => {
             const imagehotel = await Image.findOne({ _id: image });
 
             hasilItem.image.push(
-              `${process.env.URL_API}${imagehotel.imageUrl}`
+              `https://server-hotelkita.koyeb.app/${imagehotel.imageUrl}`
             );
           }
 

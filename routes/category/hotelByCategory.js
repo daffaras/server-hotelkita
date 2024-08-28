@@ -31,7 +31,7 @@ const hotelByCategory = (router) => {
             const imageFacility = await Image.findOne({ _id: image });
 
             hasilItem.image.push(
-              `${process.env.URL_API}${imageFacility.imageUrl}`
+              `https://server-hotelkita.koyeb.app/${imageFacility.imageUrl}`
             );
           }
 

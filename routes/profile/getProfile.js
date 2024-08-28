@@ -8,7 +8,7 @@ const getProfile = (router) => {
       const token = req.token;
       const profile = await User.findOne({ token: token });
       if (profile.imageUrl !== undefined) {
-        profile.imageUrl = `${process.env.URL_API}${profile.imageUrl}`;
+        profile.imageUrl = `https://server-hotelkita.koyeb.app/${profile.imageUrl}`;
       }
       return res.json({
         success: true,
